@@ -4,26 +4,41 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 using CrossyInputNS;
+using UI;
 
 namespace Logic
 {
     public class GameController : MonoBehaviour
     {
-        #region STATES
+        #region States
         private MenuState menuState;
+        private GameState gameState;
         private BaseState currentlyActiveState;
-
         #endregion
+
+        #region Views
+        [SerializeField]
+        MenuView menuView;
+        [SerializeField]
+        GameView gameView;
+        #endregion
+
+        #region Transitions
+        private UnityAction transitionToGameState;
+        private UnityAction transitionToMenuState;
+        #endregion
+
         [SerializeField]
         private CrossyInput crossyInput;
-
-
-
-
         private void Start()
         {
-            menuState = new MenuState(crossyInput);
+            
+            transitionToGameState = () => ChangeState(gameState);
+            transitionToMenuState = () => ChangeState(menuState);
+            menuState = new MenuState(crossyInput, transitionToGameState, menuView);
+            gameState = new GameState(crossyInput, transitionToMenuState, gameView);  
             ChangeState(menuState);
+
         }
         private void Update()
         {
@@ -40,14 +55,7 @@ namespace Logic
             newState.InitState();
         }
 
-        private void Print1()
-        {
-            Debug.Log("1");
-        }
-        public void Print2()
-        {
-            Debug.Log("2");
-        }
+        
 
        
 

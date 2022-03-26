@@ -13,7 +13,9 @@ namespace CrossyInputNS
         Forward,
         Back,
         Left,
-        Right
+        Right,
+        Any,
+        Esc
     }
     
     public class CrossyInput : MonoBehaviour
@@ -25,6 +27,8 @@ namespace CrossyInputNS
         private UnityAction onBack;
         private UnityAction onLeft;
         private UnityAction onRight;
+        private UnityAction onAny;
+        private UnityAction onEsc;
 
         //public void OnKeyDownAddListener(UnityAction callback)
         //{
@@ -47,6 +51,12 @@ namespace CrossyInputNS
                 case InputType.Right:
                     onRight += callback;
                     break;
+                case InputType.Any:
+                    onAny += callback;
+                    break;
+                case InputType.Esc:
+                    onEsc += callback;
+                    break;
 
             }
         }
@@ -56,6 +66,8 @@ namespace CrossyInputNS
             onLeft = null;
             onForward = null;
             onRight = null;
+            onAny = null;
+            onEsc = null;
         }
         
 
@@ -80,15 +92,36 @@ namespace CrossyInputNS
         }
         public void OnMoveLeft(InputAction.CallbackContext ctx)
         {
-            Debug.Log("Left");
-            onLeft?.Invoke();
+            if (ctx.action.WasPerformedThisFrame())
+            {
+                Debug.Log("Left");
+                onLeft?.Invoke();
+            }
         }
         public void OnMoveRight(InputAction.CallbackContext ctx)
         {
-            Debug.Log("Right");
-            onRight?.Invoke();
+            if (ctx.action.WasPerformedThisFrame())
+            {
+                Debug.Log("Right");
+                onRight?.Invoke();
+            }
         }
-      
+        public void OnAnyKeyPresses(InputAction.CallbackContext ctx)
+        {
+            if (ctx.action.WasPerformedThisFrame())
+            {
+                Debug.Log("Any is Pressed");
+                onAny?.Invoke();
+            }
+        }
+        public void OnAnyEscPresses(InputAction.CallbackContext ctx)
+        {
+            if (ctx.action.WasPerformedThisFrame())
+            {
+                Debug.Log("Any is Pressed");
+                onEsc?.Invoke();
+            }
+        }
 
 
 
