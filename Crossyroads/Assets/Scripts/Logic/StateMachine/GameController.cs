@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Events;
+using CrossyInputNS;
 
 namespace Logic
 {
@@ -13,6 +14,10 @@ namespace Logic
         private BaseState currentlyActiveState;
 
         #endregion
+        [SerializeField]
+        private CrossyInput crossyInput;
+
+
 
 
         private void Start()
@@ -35,6 +40,16 @@ namespace Logic
             newState.InitState();
         }
 
+        private void Print1()
+        {
+            Debug.Log("1");
+        }
+        public void Print2()
+        {
+            Debug.Log("2");
+        }
+
+       
 
     }
 }
