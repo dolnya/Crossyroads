@@ -6,6 +6,13 @@ namespace Logic
     {
 
         private CrossyInput crossyInput;
+
+        public MenuState(CrossyInput crossyInput)
+        {
+            this.crossyInput = crossyInput;
+        }
+
+
         public override void InitState()
         {
             Debug.Log("INIT MENU");
@@ -19,6 +26,7 @@ namespace Logic
         public override void DisposeState()
         {
             Debug.Log("DISPOSE MENU");
+            crossyInput.ClearInputs();
         }
               
         public void Test()

@@ -22,7 +22,7 @@ namespace Logic
 
         private void Start()
         {
-            menuState = new MenuState();
+            menuState = new MenuState(crossyInput);
             ChangeState(menuState);
         }
         private void Update()
