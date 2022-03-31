@@ -3,6 +3,8 @@ using CrossyInputNS;
 using UI;
 using UnityEngine.Events;
 
+using Generator;
+
 namespace Logic
 {
     public class MenuState : BaseState
@@ -11,22 +13,27 @@ namespace Logic
         private CrossyInput crossyInput;
         private UnityAction transitionToGameState;
         private MenuView menuView;
-        public MenuState(CrossyInput crossyInput, UnityAction transitionToGameState, MenuView menuView)
+        private LaneGenerator laneGenerator;
+        
+
+        public MenuState(CrossyInput crossyInput, UnityAction transitionToGameState, MenuView menuView, LaneGenerator laneGenerator)
         {
             this.crossyInput = crossyInput;
             this.transitionToGameState = transitionToGameState;
             this.menuView = menuView;
+            this.laneGenerator = laneGenerator;
         }
 
         public override void InitState()
         {
-                menuView.ShowView();
+            menuView.ShowView();
             
-                Debug.Log("INIT MENU");
-            //crossyInput.OnKeyDownAddListener(Test);
+            Debug.Log("INIT MENU");
             crossyInput.Addlistener(InputType.Any, Test);
             crossyInput.Addlistener(InputType.Any, ToGameState);
-            
+         
+            //laneGenerator.GenerateLevel(15);
+            laneGenerator.GenerateLevelList(15);
         }
         public override void UpdateState()
         {

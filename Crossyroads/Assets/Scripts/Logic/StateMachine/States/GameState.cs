@@ -2,7 +2,7 @@ using UnityEngine;
 using CrossyInputNS;
 using UnityEngine.Events;
 using UI;
-
+using Generator;
 namespace Logic
 {
     public class GameState : BaseState
@@ -28,6 +28,7 @@ namespace Logic
                 gameView.ShowView();
             }
             crossyInput.Addlistener(InputType.Esc, ToMenuState);
+
 
         }
         public override void UpdateState()

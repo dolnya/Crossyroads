@@ -5,6 +5,7 @@ using System;
 using UnityEngine.Events;
 using CrossyInputNS;
 using UI;
+using Generator;
 
 namespace Logic
 {
@@ -29,13 +30,15 @@ namespace Logic
         #endregion
 
         [SerializeField]
+        private LaneGenerator laneGenerator;
+        [SerializeField]
         private CrossyInput crossyInput;
         private void Start()
         {
             
             transitionToGameState = () => ChangeState(gameState);
             transitionToMenuState = () => ChangeState(menuState);
-            menuState = new MenuState(crossyInput, transitionToGameState, menuView);
+            menuState = new MenuState(crossyInput, transitionToGameState, menuView, laneGenerator);
             gameState = new GameState(crossyInput, transitionToMenuState, gameView);  
             ChangeState(menuState);
 
