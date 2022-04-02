@@ -7,8 +7,8 @@ public class Car : MonoBehaviour
     [SerializeField]
     private Rigidbody rg;
 
-    public void StarMovement(int speed)
+    public void StarMovement(Vector3 direction, float speed)
     {
-        rg.AddForce(transform.forward * Time.deltaTime * speed, ForceMode.Impulse);
+        rg.AddForce(direction * Time.deltaTime * speed, ForceMode.Impulse);
     }
 }
