@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Sedan
   m_EditorClassIdentifier: 
   prefab: {fileID: -1070064535775422750, guid: 1fd65e2bc7565dd42bb906bc91d85c82, type: 3}
-  baseSpeed: 1
+  baseSpeed: 5000

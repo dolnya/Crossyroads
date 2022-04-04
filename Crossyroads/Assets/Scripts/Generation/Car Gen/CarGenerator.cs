@@ -57,10 +57,14 @@ namespace Generator
                 //obj.StartMovement();
                 obj.transform.localPosition = spawnPoint[randomPoint].originSpawnPoint.localPosition;
                 obj.transform.localRotation = spawnPoint[randomPoint].originSpawnPoint.localRotation;
-                obj.StarMovement(spawnPoint[randomPoint].GetDirection(),carToInstantiate.BaseSpeed);            
+                obj.StarMovement(spawnPoint[randomPoint].GetDirection(),carToInstantiate.BaseSpeed);  
+                
+
 
             }
-        
+       
+
+
 
 
     }

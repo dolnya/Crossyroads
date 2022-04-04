@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DeliveryFlat
   m_EditorClassIdentifier: 
   prefab: {fileID: 181456193724343739, guid: ffa1079a058e62442b814678ff97a03a, type: 3}
-  baseSpeed: 1
+  baseSpeed: 5000

@@ -11,4 +11,9 @@ public class Car : MonoBehaviour
     {
         rg.AddForce(direction * Time.deltaTime * speed, ForceMode.Impulse);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "destroy")
+            Destroy(gameObject);
+    }
 }

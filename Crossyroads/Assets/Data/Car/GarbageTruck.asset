@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GarbageTruck
   m_EditorClassIdentifier: 
   prefab: {fileID: -1131583192289921673, guid: 24817e522611b7342a0e6f5031f43607, type: 3}
-  baseSpeed: 1
+  baseSpeed: 5000
