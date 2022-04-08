@@ -12,7 +12,7 @@ namespace Core
         [SerializeField] private CarData carData;
         [SerializeField] private Rigidbody rigidbody;
 
-        private UnityAction<Car> onWallHit;
+        //private UnityAction<Car> onWallHit;
 
         public void StartMovement(Vector3 direction, float speed)
         {
@@ -23,16 +23,20 @@ namespace Core
         {
             return carData.BaseSpeed;
         }
-
-        public void OnWallHitAddListener(UnityAction<Car> onWallHit)
-        {
-            this.onWallHit = onWallHit;
-        }
+        //public void OnWallHitAddListener(UnityAction<Car> onWallHit)
+        //{
+        //    this.onWallHit = onWallHit;
+        //}
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.CompareTag("Wall"))
+        //        onWallHit.Invoke(this);
+        //}
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Wall"))
-                onWallHit.Invoke(this);
+            if (other.gameObject.tag == "Wall")
+                Destroy(gameObject);
         }
 
         public void PrepareForActivate()

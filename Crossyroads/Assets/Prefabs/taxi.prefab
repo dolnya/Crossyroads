@@ -300,7 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545e49b79eeea874eb0d2a17c2c80eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rg: {fileID: 160163303113095013}
+  carData: {fileID: 0}
+  rigidbody: {fileID: 0}
 --- !u!54 &160163303113095013
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -325,7 +326,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2817103938408684782}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.7194912, z: 3.219275}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FireTruck
   m_EditorClassIdentifier: 
   prefab: {fileID: -4336349938310648360, guid: b5c2c2fc892484240878b64509431d09, type: 3}
-  baseSpeed: 5000
+  baseSpeed: 500

@@ -15,7 +15,8 @@ namespace CrossyInputNS
         Left,
         Right,
         Any,
-        Esc
+        Esc,
+        Enter
     }
     
     public class CrossyInput : MonoBehaviour
@@ -29,6 +30,7 @@ namespace CrossyInputNS
         private UnityAction onRight;
         private UnityAction onAny;
         private UnityAction onEsc;
+        private UnityAction onEnter;
 
         //public void OnKeyDownAddListener(UnityAction callback)
         //{
@@ -56,6 +58,9 @@ namespace CrossyInputNS
                     break;
                 case InputType.Esc:
                     onEsc += callback;
+                    break;
+                case InputType.Enter:
+                    onEnter += callback;
                     break;
 
             }
@@ -120,6 +125,14 @@ namespace CrossyInputNS
             {
                 Debug.Log("Any is Pressed");
                 onEsc?.Invoke();
+            }
+        }
+        public void OnEnterPresses(InputAction.CallbackContext ctx)
+        {
+            if (ctx.action.WasPerformedThisFrame())
+            {
+                Debug.Log("Any is Pressed");
+                onEnter?.Invoke();
             }
         }
 

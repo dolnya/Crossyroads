@@ -8,14 +8,25 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove = true;
     private UnityAction onDie;
     private Vector3 startPos;
+    //private Vector3 startScale;
+    //private Quaternion startRot;
     [SerializeField] private Transform realPlayer;
     [SerializeField] private Transform deadScale;
     [SerializeField] private Transform deadScale2;
+    
 
     public void InitPlayer()
     {
+        
         startPos = transform.position;
+  
+
+        
     }
+
+
+
+
 
     public void MoveForward()
     {
@@ -72,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         {
             onDie.Invoke();
         }
-        else if(other.CompareTag("Car"))
+        else if(other.CompareTag("car"))
         {
             if (Math.Abs(transform.position.y - startPos.y) < 0.01f)
             {
