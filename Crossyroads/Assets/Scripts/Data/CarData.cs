@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CarPools;
+using Core;
 namespace Data
 { 
     [CreateAssetMenu(menuName ="Crossy/Car/NewCar")]

@@ -3,7 +3,7 @@ using CrossyInputNS;
 using UI;
 using UnityEngine.Events;
 using System;
-
+using Camera;
 using Generator;
 
 namespace Logic
@@ -14,27 +14,34 @@ namespace Logic
         private CrossyInput crossyInput;
         private UnityAction transitionToGameState;
         private MenuView menuView;
-        private LaneGenerator laneGenerator;
-        
+        private GameView gameView;
+        private LoseView loseView;
+        private CameraMovement cameraMovement;
 
-        public MenuState(CrossyInput crossyInput, UnityAction transitionToGameState, MenuView menuView, LaneGenerator laneGenerator)
+
+
+        public MenuState(CrossyInput crossyInput, UnityAction transitionToGameState, MenuView menuView,
+            GameView gameView, LoseView loseView, CameraMovement cameraMovement)
         {
             this.crossyInput = crossyInput;
             this.transitionToGameState = transitionToGameState;
             this.menuView = menuView;
-            this.laneGenerator = laneGenerator;
+            this.gameView = gameView;
+            this.loseView = loseView;
+            this.cameraMovement = cameraMovement;
+
         }
 
         public override void InitState()
         {
+            gameView.HideView();
+            loseView.HideView();
             menuView.ShowView();
-            
+            cameraMovement.RestetPosition();
             Debug.Log("INIT MENU");
-            crossyInput.Addlistener(InputType.Any, Test);
-            crossyInput.Addlistener(InputType.Any, ToGameState);
-         
-            //laneGenerator.GenerateLevel(15);
-            laneGenerator.GenerateLevelList(15);
+            crossyInput.Addlistener(InputType.Any, transitionToGameState);
+            
+
         }
         public override void UpdateState()
         {
@@ -52,16 +59,7 @@ namespace Logic
             }
         }
               
-        public void Test()
-        {
-            Debug.Log("Test Menu");
-        }
-        public void ToGameState()
-        {
-            transitionToGameState.Invoke();
-            
-            Debug.Log("To Game State invoke called");
-        }
+
 
     }
 }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HatchBackSport
   m_EditorClassIdentifier: 
   prefab: {fileID: 2332517623296725872, guid: c92476bdf7478ac4fa93487ba792f460, type: 3}
-  baseSpeed: 5000
+  baseSpeed: 500

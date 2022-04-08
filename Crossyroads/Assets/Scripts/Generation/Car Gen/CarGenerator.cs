@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using Core;
 using UnityEngine;
 using Data;
 using Random = UnityEngine.Random;
@@ -57,7 +58,7 @@ namespace Generator
                 //obj.StartMovement();
                 obj.transform.localPosition = spawnPoint[randomPoint].originSpawnPoint.localPosition;
                 obj.transform.localRotation = spawnPoint[randomPoint].originSpawnPoint.localRotation;
-                obj.StarMovement(spawnPoint[randomPoint].GetDirection(),carToInstantiate.BaseSpeed);  
+                obj.StartMovement(spawnPoint[randomPoint].GetDirection(),carToInstantiate.BaseSpeed);  
                 
 
 

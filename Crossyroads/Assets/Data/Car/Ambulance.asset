@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Ambulance
   m_EditorClassIdentifier: 
   prefab: {fileID: 6777075370565123056, guid: 85626e33fee81a547af77db2f348077a, type: 3}
-  baseSpeed: 5000
+  baseSpeed: 500

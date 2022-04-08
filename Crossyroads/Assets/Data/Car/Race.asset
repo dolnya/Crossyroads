@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Race
   m_EditorClassIdentifier: 
   prefab: {fileID: 2087186508208521633, guid: 0b57354989cd49443b17a6638421f587, type: 3}
-  baseSpeed: 5000
+  baseSpeed: 500

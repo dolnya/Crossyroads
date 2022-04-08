@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Utilities
+namespace CarPools
 {
     public interface IPoolable
     {

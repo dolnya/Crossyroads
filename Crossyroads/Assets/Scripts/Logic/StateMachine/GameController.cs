@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using CrossyInputNS;
 using UI;
 using Generator;
+using Camera;
 
 namespace Logic
 {
@@ -14,6 +15,7 @@ namespace Logic
         #region States
         private MenuState menuState;
         private GameState gameState;
+        private LoseState loseState;
         private BaseState currentlyActiveState;
         #endregion
 
@@ -22,24 +24,35 @@ namespace Logic
         MenuView menuView;
         [SerializeField]
         GameView gameView;
+        [SerializeField]
+        LoseView loseView;
         #endregion
 
         #region Transitions
         private UnityAction transitionToGameState;
         private UnityAction transitionToMenuState;
+        private UnityAction transitionToLoseState;
         #endregion
 
         [SerializeField]
         private LaneGenerator laneGenerator;
         [SerializeField]
         private CrossyInput crossyInput;
+        [SerializeField]
+        private PlayerMovement playerMovement;
+        [SerializeField]
+        private CameraMovement cameraMovement;
+
         private void Start()
         {
             
             transitionToGameState = () => ChangeState(gameState);
             transitionToMenuState = () => ChangeState(menuState);
-            menuState = new MenuState(crossyInput, transitionToGameState, menuView, laneGenerator);
-            gameState = new GameState(crossyInput, transitionToMenuState, gameView);  
+            transitionToLoseState = () => ChangeState(loseState);
+            menuState = new MenuState(crossyInput, transitionToGameState, menuView, gameView, loseView, cameraMovement);
+            gameState = new GameState(crossyInput, transitionToMenuState, transitionToLoseState, gameView, cameraMovement, laneGenerator, playerMovement);
+            loseState = new LoseState(crossyInput, transitionToMenuState, transitionToGameState, loseView);
+            
             ChangeState(menuState);
 
         }
