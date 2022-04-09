@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83056e64125a72844a7229c8c2076c05, type: 3}
   m_Name: New Chunk Template 1
   m_EditorClassIdentifier: 
-  lanes: []
+  lanes:
+  - {fileID: 863878629185530654, guid: c6d0628695da4ce48811220ecac12ab0, type: 3}
+  - {fileID: -7741270505953325167, guid: 0d0916d92c04504458a45142de153e04, type: 3}

@@ -925,8 +925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b08d05e4984f848b539ec20c919771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBase: 1
-  speedCatch: 3
+  speedBase: 1.5
+  speedCatch: 5
   distance: 2
   transitionSpeed: 0.2
   playerTransform: {fileID: 721697535}
@@ -1191,6 +1191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lanePrefab: {fileID: -7741270505953325167, guid: c7896b364fcd51f45a3be1b499fe0bb3, type: 3}
+  chunches: []
   laneList:
   - {fileID: -7741270505953325167, guid: c7896b364fcd51f45a3be1b499fe0bb3, type: 3}
   - {fileID: 863878629185530654, guid: c6d0628695da4ce48811220ecac12ab0, type: 3}
@@ -2044,7 +2045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1211919921797178695, guid: 1d8ad0601c32dd44ba42b81d52c987ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -601.1197
+      value: -601.111
       objectReference: {fileID: 0}
     - target: {fileID: 1211919921797178695, guid: 1d8ad0601c32dd44ba42b81d52c987ac, type: 3}
       propertyPath: m_LocalPosition.y
