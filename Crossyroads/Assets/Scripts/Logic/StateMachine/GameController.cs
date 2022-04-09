@@ -7,6 +7,7 @@ using CrossyInputNS;
 using UI;
 using Generator;
 using Camera;
+       
 
 namespace Logic
 {
@@ -42,6 +43,8 @@ namespace Logic
         private PlayerMovement playerMovement;
         [SerializeField]
         private CameraMovement cameraMovement;
+        [SerializeField]
+        private CarStorage carStorage;
 
         private void Start()
         {
@@ -49,7 +52,7 @@ namespace Logic
             transitionToGameState = () => ChangeState(gameState);
             transitionToMenuState = () => ChangeState(menuState);
             transitionToLoseState = () => ChangeState(loseState);
-            menuState = new MenuState(crossyInput, transitionToGameState, menuView, gameView, loseView, cameraMovement);
+            menuState = new MenuState(crossyInput, transitionToGameState, menuView, gameView, loseView, cameraMovement, laneGenerator, carStorage);
             gameState = new GameState(crossyInput, transitionToMenuState, transitionToLoseState, gameView, cameraMovement, laneGenerator, playerMovement);
             loseState = new LoseState(crossyInput, transitionToMenuState, transitionToGameState, loseView);
             

@@ -4,7 +4,7 @@ using UnityEngine;
 using CrossyInputNS;
 using UI;
 using UnityEngine.Events;
-
+using UnityEngine.SceneManagement;
 namespace Logic
 {
     public class LoseState : BaseState
@@ -42,6 +42,7 @@ namespace Logic
         private void ToMenuState()
         {
             transitionToMenuState.Invoke();
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
         }
 
         public override void DisposeState()
@@ -53,5 +54,6 @@ namespace Logic
                 loseView.HideView();
             }
         }
+
     }
 }

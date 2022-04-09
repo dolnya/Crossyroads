@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         canMove = false;
         transform.DORotate(new Vector3(0, 0, 0), .2f);
-        transform.DOJump(transform.position + Vector3.right * 1.5f, 1f,
+        transform.DOJump(transform.position + Vector3.right * 1.525f, 1f,
             1, .2f).OnComplete(() => canMove = true);
     }
 
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
         canMove = false;
         transform.DORotate(new Vector3(0, -180f, 0), .2f);
-        transform.DOJump(transform.position + Vector3.left * 1.5f, 1f, 
+        transform.DOJump(transform.position + Vector3.left * 1.525f, 1f, 
             1, .2f).OnComplete(() => canMove = true);
     }
 

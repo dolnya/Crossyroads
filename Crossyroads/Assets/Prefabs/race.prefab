@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carData: {fileID: 11400000, guid: 96dec960f0add5e40a4bda3fc36187b2, type: 2}
-  rigidbody: {fileID: 7058262645811832775}
+  rigidbodyCar: {fileID: 7058262645811832775}
 --- !u!54 &7058262645811832775
 Rigidbody:
   m_ObjectHideFlags: 0

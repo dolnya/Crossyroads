@@ -5,7 +5,7 @@ using Data;
 using CarPools;
 using UnityEngine;
  
-namespace SDA.Generation
+namespace Generator
 {
     public class CarStorage : MonoBehaviour
     {

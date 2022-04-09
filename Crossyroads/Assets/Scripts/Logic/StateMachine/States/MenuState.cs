@@ -5,6 +5,12 @@ using UnityEngine.Events;
 using System;
 using Camera;
 using Generator;
+using CarPools;
+using LaneGen;
+using System.Collections;
+using System.Collections.Generic;
+
+
 
 namespace Logic
 {
@@ -17,11 +23,12 @@ namespace Logic
         private GameView gameView;
         private LoseView loseView;
         private CameraMovement cameraMovement;
-
+        private LaneGenerator laneGenerator;
+        private CarStorage carStorage;
 
 
         public MenuState(CrossyInput crossyInput, UnityAction transitionToGameState, MenuView menuView,
-            GameView gameView, LoseView loseView, CameraMovement cameraMovement)
+            GameView gameView, LoseView loseView, CameraMovement cameraMovement, LaneGenerator laneGenerator, CarStorage carStorage)
         {
             this.crossyInput = crossyInput;
             this.transitionToGameState = transitionToGameState;
@@ -29,6 +36,8 @@ namespace Logic
             this.gameView = gameView;
             this.loseView = loseView;
             this.cameraMovement = cameraMovement;
+            this.carStorage = carStorage;
+            this.laneGenerator = laneGenerator;
 
         }
 
@@ -37,10 +46,11 @@ namespace Logic
             gameView.HideView();
             loseView.HideView();
             menuView.ShowView();
-            cameraMovement.RestetPosition();
             Debug.Log("INIT MENU");
+            carStorage.InitializeStorage();
             crossyInput.Addlistener(InputType.Any, transitionToGameState);
-            
+            laneGenerator.GenerateLevel(carStorage.CarsPool, 20);
+
 
         }
         public override void UpdateState()

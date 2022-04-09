@@ -7,5 +7,10 @@ namespace UI
     public class LoseView : BaseView
     {
 
+
+        [SerializeField]
+        private TextMesh score;
+
+        
     }
 }

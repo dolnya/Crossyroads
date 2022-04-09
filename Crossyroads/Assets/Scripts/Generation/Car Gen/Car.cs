@@ -10,23 +10,23 @@ namespace Core
     public class Car : MonoBehaviour, IPoolable
     {
         [SerializeField] private CarData carData;
-        [SerializeField] private Rigidbody rigidbody;
+        [SerializeField] private Rigidbody rigidbodyCar;
 
-        //private UnityAction<Car> onWallHit;
+        private UnityAction<Car> onWallHit;
 
         public void StartMovement(Vector3 direction, float speed)
         {
-            rigidbody.AddForce(direction * (speed * Time.fixedDeltaTime), ForceMode.Impulse);
+            rigidbodyCar.AddForce(direction * (speed * Time.fixedDeltaTime), ForceMode.Impulse);
         }
 
         public float GetSpeed()
         {
             return carData.BaseSpeed;
         }
-        //public void OnWallHitAddListener(UnityAction<Car> onWallHit)
-        //{
-        //    this.onWallHit = onWallHit;
-        //}
+        public void OnWallHitAddListener(UnityAction<Car> onWallHit)
+        {
+            this.onWallHit = onWallHit;
+        }
         //private void OnTriggerEnter(Collider other)
         //{
         //    if (other.CompareTag("Wall"))
@@ -36,12 +36,13 @@ namespace Core
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Wall")
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                onWallHit.Invoke(this);
         }
 
         public void PrepareForActivate()
         {
-            rigidbody.velocity = Vector3.zero;
+            rigidbodyCar.velocity = Vector3.zero;
             gameObject.SetActive(true);
         }
 

@@ -51,7 +51,6 @@ namespace Logic
             crossyInput.Addlistener(InputType.Left, playerMovement.MoveLeft);
             crossyInput.Addlistener(InputType.Right, playerMovement.MoveRight);
         
-            laneGenerator.GenerateLevelList(15);
             playerMovement.InitPlayer();
            
 
