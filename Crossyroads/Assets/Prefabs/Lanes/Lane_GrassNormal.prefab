@@ -78,13 +78,13 @@ MonoBehaviour:
     direction: 0
   - originSpawnPoint: {fileID: 4558899419503208725}
     direction: 1
-  elo: {fileID: 0}
   cars:
   - {fileID: 11400000, guid: cbdfdf313beff0b4daeea53a1995bedc, type: 2}
   - {fileID: 11400000, guid: 1f947cdaac18ec341bac843ceaaaf05b, type: 2}
   - {fileID: 11400000, guid: 6f9e56add92f0fe48ab089d57ea9bda3, type: 2}
   - {fileID: 11400000, guid: 2ca1fbadd3ce394448ac2eb3c5c62395, type: 2}
   - {fileID: 11400000, guid: 956bce0bcd69e8649947e703797e30f9, type: 2}
+  isEnabled: 0
 --- !u!1 &3274235400190001179
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carGenerator: {fileID: 5579859955351040814}
+  SpawnCars: 1
 --- !u!1 &3974109792362539648
 GameObject:
   m_ObjectHideFlags: 0

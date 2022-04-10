@@ -45,13 +45,15 @@ namespace Generator
             //4. Spraw aby samochód pojecha³ w kierunku w którym stoi
 
         [SerializeField] private SpawnPoint[] spawnPoint;
-        [SerializeField] private Transform elo;
+
         [SerializeField] private CarData[] cars;
 
         private CarPool<Car> pool;
         private CarType typeToSpawn;
         private int spawnPointIndex;
         private List<Car> spawnedCars = new List<Car>();
+        [SerializeField]
+        private bool isEnabled = true;
         //public void SpawnCar()
         //    {
         //        var randomIndex = Random.Range(0, cars.Length);
@@ -74,13 +76,18 @@ namespace Generator
             typeToSpawn = type;
             spawnPointIndex = spawnIndex;
         }
+
         private void ReturnToPool(Car car)
         {
             spawnedCars.Remove(car);
             pool.ReturnToPool(typeToSpawn, car);
         }
+
         public void SpawnCar(Transform parent)
         {
+            if (!isEnabled)
+                return;
+
             var obj = pool.GetFromPool(typeToSpawn);
             obj.transform.SetParent(parent);
             obj.transform.position = spawnPoint[spawnPointIndex].originSpawnPoint.position;
@@ -90,8 +97,6 @@ namespace Generator
             spawnedCars.Add(obj);
 
         }
-
-
 
         public void DespawnCars()
         {

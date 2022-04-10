@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using UI;
 using Camera;
 using Generator;
+using Core;
 namespace Logic
 {
     public class GameState : BaseState
@@ -16,12 +17,12 @@ namespace Logic
         private PlayerMovement playerMovement;
         private CameraMovement cameraMovement;
         private LaneGenerator laneGenerator;
-
+        private PointsSystem pointsSystem;
 
 
         public GameState(CrossyInput crossyInput,UnityAction transitionToMenuState, 
             UnityAction transitionToLoseState, GameView gameView, CameraMovement cameraMovement,
-            LaneGenerator laneGenerator, PlayerMovement playerMovement
+            LaneGenerator laneGenerator, PlayerMovement playerMovement, PointsSystem pointsSystem
             )
         {
             this.crossyInput = crossyInput;
@@ -31,6 +32,7 @@ namespace Logic
             this.cameraMovement = cameraMovement;
             this.laneGenerator = laneGenerator;
             this.playerMovement = playerMovement;
+            this.pointsSystem = pointsSystem;
             
         }
 
@@ -50,8 +52,8 @@ namespace Logic
             crossyInput.Addlistener(InputType.Back, playerMovement.MoveBackward);
             crossyInput.Addlistener(InputType.Left, playerMovement.MoveLeft);
             crossyInput.Addlistener(InputType.Right, playerMovement.MoveRight);
-        
-            playerMovement.InitPlayer();
+            playerMovement.InitPlayer(pointsSystem);
+            
            
 
 

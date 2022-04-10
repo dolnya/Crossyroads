@@ -3,7 +3,17 @@ guid: 27b7bc40ec2395a408fa811f5af8a04c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - storageParent: {instanceID: 0}
+  - ambulancePrefab: {instanceID: 0}
+  - deliveryPrefab: {instanceID: 0}
+  - firetruckPrefab: {instanceID: 0}
+  - hatchbackPrefab: {instanceID: 0}
+  - policePrefab: {instanceID: 0}
+  - sedanPrefab: {instanceID: 0}
+  - suvPrefab: {instanceID: 0}
+  - truckPrefab: {instanceID: 0}
+  - vanPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

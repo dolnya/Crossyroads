@@ -13,22 +13,18 @@ namespace LaneGen
     {
         [SerializeField]
         private CarGenerator carGenerator;
-
-        [SerializeReference]
-        bool SpawnCars = true;
         private UnityAction onDespawn;
         public void InitializeLane(CarPool<Car> pool, CarType type, int spawnPointIndex)
         {
-            
-            
             carGenerator.InitializeGenerator(pool, type, spawnPointIndex);
-            StartCoroutine(GenerateCar(Random.Range(1f,5f)));
+            var time = Random.Range(2f, 10f);
+            StartCoroutine(GenerateCar(time));
         }
 
 
         private IEnumerator GenerateCar(float timeBetweenSpawns)
         {
-            while (SpawnCars)
+            while (true)
             {
                 carGenerator.SpawnCar(transform.parent);
                 yield return new WaitForSeconds(timeBetweenSpawns);
@@ -38,9 +34,10 @@ namespace LaneGen
         {
             onDespawn = callback;
         }
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Wall")
+            if (other.CompareTag("Wall"))
             {
                 StopAllCoroutines();
                 carGenerator.DespawnCars();

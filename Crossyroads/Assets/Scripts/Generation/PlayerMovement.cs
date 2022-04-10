@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
+using Core;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,15 +14,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform realPlayer;
     [SerializeField] private Transform deadScale;
     [SerializeField] private Transform deadScale2;
-    
-
-    public void InitPlayer()
+    private PointsSystem pointsSystem;
+    private float highestX;
+    public void InitPlayer(PointsSystem pointsSystem)
     {
-        
-        startPos = transform.position;
-  
 
-        
+        this.pointsSystem = pointsSystem;
+        highestX = transform.position.x;
+        startPos = transform.position;
+
     }
 
 

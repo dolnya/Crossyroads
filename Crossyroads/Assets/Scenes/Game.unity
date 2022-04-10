@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 39267707}
   m_Layer: 0
   m_Name: Cleaner
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,11 +147,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39267705}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.48, y: 0, z: 12.38}
-  m_LocalScale: {x: 1.3003372, y: 18.39327, z: 39.573162}
+  m_LocalRotation: {x: -0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
+  m_LocalPosition: {x: -9.206531, y: 0.5134115, z: 9.289252}
+  m_LocalScale: {x: 2.12189, y: 30.014143, z: 64.575485}
   m_Children: []
-  m_Father: {fileID: 1909625963}
+  m_Father: {fileID: 963194228}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &39267707
@@ -162,7 +162,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39267705}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -213,12 +213,12 @@ MonoBehaviour:
   spawnPoint:
   - originSpawnPoint: {fileID: 0}
     direction: 0
-  elo: {fileID: 0}
   cars:
   - {fileID: 11400000, guid: 6f9e56add92f0fe48ab089d57ea9bda3, type: 2}
   - {fileID: 11400000, guid: cbdfdf313beff0b4daeea53a1995bedc, type: 2}
   - {fileID: 11400000, guid: 1f947cdaac18ec341bac843ceaaaf05b, type: 2}
   - {fileID: 11400000, guid: 2e0cde2ae9609ae4cb045f34bb0a256a, type: 2}
+  isEnabled: 1
 --- !u!1 &313711369
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +910,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1236169073}
+  - {fileID: 39267706}
   m_Father: {fileID: 1909625963}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
@@ -925,8 +926,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b08d05e4984f848b539ec20c919771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBase: 1
-  speedCatch: 3
+  speedBase: 2
+  speedCatch: 5
   distance: 2
   transitionSpeed: 0.2
   playerTransform: {fileID: 721697535}
@@ -1083,7 +1084,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carGenerator: {fileID: 0}
-  SpawnCars: 1
 --- !u!1 &1116033485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,11 +1190,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb57edf30ee8ed4a864b451e31f931e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lanePrefab: {fileID: -7741270505953325167, guid: c7896b364fcd51f45a3be1b499fe0bb3, type: 3}
-  laneList:
-  - {fileID: -7741270505953325167, guid: c7896b364fcd51f45a3be1b499fe0bb3, type: 3}
-  - {fileID: 863878629185530654, guid: c6d0628695da4ce48811220ecac12ab0, type: 3}
-  lanesParent: {fileID: 1639988892}
+  chunkes:
+  - ranges: {x: 0, y: 100}
+    templates:
+    - {fileID: 11400000, guid: 2ebc44a5aa29503428910f00a9348da9, type: 2}
+    - {fileID: 11400000, guid: ac428480c68f9fc4786b5dbd78e3d208, type: 2}
+    - {fileID: 11400000, guid: ac428480c68f9fc4786b5dbd78e3d208, type: 2}
+    - {fileID: 11400000, guid: ac428480c68f9fc4786b5dbd78e3d208, type: 2}
+  - ranges: {x: 101, y: 200}
+    templates:
+    - {fileID: 11400000, guid: 2ebc44a5aa29503428910f00a9348da9, type: 2}
+    - {fileID: 11400000, guid: cd49bfe6f02d8df4a8ceaf7239a996c4, type: 2}
+    - {fileID: 11400000, guid: 30e5ea76281eb7f48a49638c218fe1d6, type: 2}
+    - {fileID: 11400000, guid: 242e1c46f1ee24b4caa3ee264f32a552, type: 2}
+  - ranges: {x: 201, y: 300}
+    templates:
+    - {fileID: 11400000, guid: 2ebc44a5aa29503428910f00a9348da9, type: 2}
+    - {fileID: 11400000, guid: 2ebc44a5aa29503428910f00a9348da9, type: 2}
+    - {fileID: 11400000, guid: cd49bfe6f02d8df4a8ceaf7239a996c4, type: 2}
+    - {fileID: 11400000, guid: 30e5ea76281eb7f48a49638c218fe1d6, type: 2}
+    - {fileID: 11400000, guid: cd49bfe6f02d8df4a8ceaf7239a996c4, type: 2}
+  lanesParent: {fileID: 513401277}
   startPos: {fileID: 1639988892}
   distance: 1.5
 --- !u!1 &1342748133
@@ -2116,7 +2132,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
-  - {fileID: 39267706}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

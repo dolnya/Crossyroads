@@ -262,12 +262,12 @@ MonoBehaviour:
     direction: 0
   - originSpawnPoint: {fileID: 7412953046540175565}
     direction: 1
-  elo: {fileID: 0}
   cars:
   - {fileID: 11400000, guid: 6f9e56add92f0fe48ab089d57ea9bda3, type: 2}
   - {fileID: 11400000, guid: cbdfdf313beff0b4daeea53a1995bedc, type: 2}
   - {fileID: 11400000, guid: 1f947cdaac18ec341bac843ceaaaf05b, type: 2}
   - {fileID: 11400000, guid: 2e0cde2ae9609ae4cb045f34bb0a256a, type: 2}
+  isEnabled: 0
 --- !u!1 &4816901297018092918
 GameObject:
   m_ObjectHideFlags: 0

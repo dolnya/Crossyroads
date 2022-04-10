@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CarPools {
     public class CarPool<TPoolable>
-            where TPoolable : IPoolable
+        where TPoolable : IPoolable
     {
         private Dictionary<CarType, Stack<TPoolable>> pooledObjects =
             new Dictionary<CarType, Stack<TPoolable>>();
